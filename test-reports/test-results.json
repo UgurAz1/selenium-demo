@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2025-06-16T14:50:41.072Z",
-    "end": "2025-06-16T14:50:47.785Z",
-    "duration": 6713,
+    "start": "2025-06-16T15:16:20.120Z",
+    "end": "2025-06-16T15:16:25.821Z",
+    "duration": 5701,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,25 +18,25 @@
   },
   "results": [
     {
-      "uuid": "de30c602-ef18-4bf0-accc-52998ae56413",
+      "uuid": "eae833f2-63ca-4d40-ac48-4240c2e49827",
       "title": "",
-      "fullFile": "C:\\Users\\ugur.ayvaz\\Desktop\\selenium-ts-project\\test\\example.test.ts",
-      "file": "\\test\\example.test.ts",
+      "fullFile": "C:\\Users\\ugur.ayvaz\\Desktop\\selenium-ts-project\\test\\login.test.ts",
+      "file": "\\test\\login.test.ts",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "9d3d8f84-ba8e-44f5-86f4-a2d8dd4874fa",
+          "uuid": "972f4fec-6a3d-410a-8e4d-68c4fa40cbd4",
           "title": "TC-01-Login",
-          "fullFile": "C:\\Users\\ugur.ayvaz\\Desktop\\selenium-ts-project\\test\\example.test.ts",
-          "file": "\\test\\example.test.ts",
+          "fullFile": "C:\\Users\\ugur.ayvaz\\Desktop\\selenium-ts-project\\test\\login.test.ts",
+          "file": "\\test\\login.test.ts",
           "beforeHooks": [
             {
               "title": "\"before all\" hook in \"TC-01-Login\"",
               "fullTitle": "TC-01-Login \"before all\" hook in \"TC-01-Login\"",
               "timedOut": null,
-              "duration": 3028,
+              "duration": 2617,
               "state": null,
               "speed": null,
               "pass": false,
@@ -45,7 +45,7 @@
               "context": null,
               "code": "__awaiter(this, void 0, void 0, function* () {\n        driver = yield new selenium_webdriver_1.Builder().forBrowser('chrome').build();\n        loginPage = new LoginPage_1.LoginPage(driver);\n        yield driver.get(`${URL}/login`);\n    })",
               "err": {},
-              "uuid": "29cf675f-19cd-4455-9585-fb6148bebc26",
+              "uuid": "4deede5b-e4e9-4208-82e3-872c54d12e51",
               "parentUUID": null,
               "isHook": true,
               "skipped": false
@@ -56,7 +56,7 @@
               "title": "\"after all\" hook in \"TC-01-Login\"",
               "fullTitle": "TC-01-Login \"after all\" hook in \"TC-01-Login\"",
               "timedOut": null,
-              "duration": 30,
+              "duration": 39,
               "state": null,
               "speed": null,
               "pass": false,
@@ -65,7 +65,7 @@
               "context": null,
               "code": "__awaiter(this, void 0, void 0, function* () {\n        yield driver.quit();\n    })",
               "err": {},
-              "uuid": "eb2c0cba-218f-45ae-a4c7-4a049ca9d83e",
+              "uuid": "1de15608-641c-40bb-a359-e069909ef74f",
               "parentUUID": null,
               "isHook": true,
               "skipped": false
@@ -76,7 +76,7 @@
               "title": "Login should succeed",
               "fullTitle": "TC-01-Login Login should succeed",
               "timedOut": null,
-              "duration": 1904,
+              "duration": 1462,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -85,7 +85,7 @@
               "context": null,
               "code": "__awaiter(this, void 0, void 0, function* () {\n        const messageLocator = selenium_webdriver_1.By.css(\"h2.text-myspa-blue.text-4xl\");\n        const email = \"my-spa@mailbox.org\";\n        const password = \"bvmFlrZKTYnd!A1\";\n        yield loginPage.acceptCookiesIfVisible();\n        yield loginPage.login(email, password);\n        const element = yield driver.wait(selenium_webdriver_1.until.elementLocated(messageLocator), 5000);\n        const text = yield element.getText();\n        (0, chai_1.expect)(text).to.include('CHOOSE YOUR LOCATION');\n    })",
               "err": {},
-              "uuid": "d521092a-505d-4358-bbaf-d13c540e167e",
+              "uuid": "2d35e531-421c-4bfa-bac7-99a026282251",
               "parentUUID": null,
               "isHook": false,
               "skipped": false
@@ -93,12 +93,12 @@
           ],
           "suites": [],
           "passes": [
-            "d521092a-505d-4358-bbaf-d13c540e167e"
+            "2d35e531-421c-4bfa-bac7-99a026282251"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1904,
+          "duration": 1462,
           "root": false,
           "rootEmpty": false,
           "_timeout": null

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx mocha --require ts-node/register test/**/*.test.ts --no-timeouts --parallel --reporter mochawesome --require mochawesome/register --reporter-options reportDir=./test-reports,reportFilename=test-results"
+    "test": "npx mocha"
   },
   "keywords": [],
   "author": "",

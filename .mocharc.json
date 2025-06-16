@@ -1,0 +1,17 @@
+{
+  "require": [
+    "ts-node/register",
+    "mochawesome/register"
+  ],
+  "extension": [
+    "ts"
+  ],
+  "spec": "test/**/*.test.ts",
+  "timeout": false,
+  "parallel": true,
+  "reporter": "mochawesome",
+  "reporter-option": [
+    "reportDir=./test-reports",
+    "reportFilename=test-results"
+  ]
+}
