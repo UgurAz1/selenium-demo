@@ -1,4 +1,8 @@
 import { By, WebDriver, Locator } from 'selenium-webdriver';
+import dotenv from "dotenv";
+dotenv.config();
+
+const DEBUG = process.env.DEBUG === 'true';
 
 export class BasePage {
   constructor(protected readonly driver: WebDriver) { }
@@ -71,5 +75,11 @@ export class BasePage {
     const elements = await this.driver.findElements(locator);
     if (!elements.length) throw new Error(`No element found for: ${locator}`);
     return elements[0];
+  }
+
+  async pause(ms = 10000) {
+    if (DEBUG) {
+      await this.driver.sleep(ms);
+    }
   }
 }

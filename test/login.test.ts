@@ -1,8 +1,9 @@
 import { Builder, By, Key, until, WebDriver } from 'selenium-webdriver';
+import chrome from 'selenium-webdriver/chrome';
 import { expect } from 'chai';
 import dotenv from "dotenv";
-import { LoginPage } from '../pages/account/LoginPage';
-import { UserHelper } from "../utils/UserHelper";
+import { LoginPage } from '../src/pages/account/LoginPage';
+import { UserHelper } from "../src/utils/UserHelper";
 
 dotenv.config();
 
@@ -11,17 +12,30 @@ const user = UserHelper.load();
 
 
 describe('TC-01-Login', function () {
-  this.timeout(20000);
   let driver: WebDriver;
   let loginPage: LoginPage;
 
-  before(async () => {
-    driver = await new Builder().forBrowser('chrome').build();
+  const options = new chrome.Options();
+  options.addArguments('--ignore-certificate-errors');
+
+  const capabilities = {
+    browserName: 'chrome',
+    acceptInsecureCerts: true
+  };
+
+  beforeEach(async () => {
+    driver = await new Builder()
+      .forBrowser('chrome')
+      .setChromeOptions(options)
+      .usingServer('http://localhost:4444/wd/hub')
+      .withCapabilities(capabilities)
+      .build();
+
     loginPage = new LoginPage(driver)
     await driver.get(`${URL}/login`);
   });
 
-  after(async () => {
+  afterEach(async () => {
     await driver.quit();
   });
 
@@ -34,6 +48,18 @@ describe('TC-01-Login', function () {
     const text = await element.getText();
 
     expect(text).to.include('CHOOSE YOUR LOCATION');
+
+  });
+
+  it('Login should fail with wrong password', async () => {
+    const errorToastMessage = By.css("div.bg-myspa-error.flex")
+
+    await loginPage.acceptCookiesIfVisible()
+    await loginPage.login("user@test.de", "_")
+    const element = await driver.wait(until.elementLocated(errorToastMessage), 5000);
+    const text = await element.getText();
+
+    expect(text).to.equal('Login failed. User not found.');
 
   });
 });

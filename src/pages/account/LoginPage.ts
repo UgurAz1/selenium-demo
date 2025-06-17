@@ -7,8 +7,8 @@ export class LoginPage extends BasePage {
     super(driver);
   }
 
-  private emailField = By.css('input#email');
-  private passwordField = By.css('input#password');
+  private emailField = By.id('email');
+  private passwordField = By.id('password');
   private loginButton = By.css("button.w-full.bg-myspa-blue-alt");
   private registerButton = By.css("a.text-myspa-blue.underline");
   private goBackToLoginButton = By.xpath("//span[normalize-space(text())='Back to login']");
