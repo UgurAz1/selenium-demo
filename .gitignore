@@ -1,8 +1,6 @@
 node_modules/
-
 dist/
 build/
-
 .env
 .env.local
 
@@ -10,3 +8,5 @@ build/
 .idea/
 
 *.log
+test-data/
+test-reports/

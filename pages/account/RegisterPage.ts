@@ -23,24 +23,24 @@ export class RegisterPage extends BasePage {
     super(driver);
   }
 
-  private goBackToLoginButton = By.xpath("//a[contains(text(), 'Back to login')]");
+  private goBackToLoginButton = By.css("a.text-myspa-blue.underline");
   private salutation = By.id('salutation');
-  private firstName = By.css('input[placeholder="Firstname *"]');
-  private lastName = By.css('input[placeholder="Lastname *"]');
-  private street = By.css('input[placeholder="Street *"]');
-  private houseNumber = By.css('input[placeholder="House no. *"]');
-  private zipCode = By.css('input[placeholder="ZIP Code *"]');
-  private city = By.css('input[placeholder="City *"]');
+  private firstName = By.id('firstName');
+  private lastName = By.id('lastName');
+  private street = By.id('street');
+  private houseNumber = By.id('houseNumber');
+  private zipCode = By.id('zip');
+  private city = By.id('city');
   private country = By.id('country');
-  private emailField = By.css('input[placeholder="E-mail address *"]');
-  private confirmEmail = By.css('input[placeholder="Repeat e-mail address *"]');
+  private emailField = By.id('email');
+  private confirmEmail = By.id('emailRepeat');
   private birthdayDay = By.id('birthdayDay');
   private birthdayMonth = By.id('birthdayMonth');
   private birthdayYear = By.id('birthdayYear');
-  private passwordField = By.css('input[placeholder="Password *"]');
-  private confirmPassword = By.css('input[placeholder="Repeat Password *"]');
+  private passwordField = By.id('password');
+  private confirmPassword = By.id('passwordRepeat');
   private policyCheckBox = By.id('dataProtectionConfirmation');
-  private registerButton = By.xpath("//button[contains(text(), 'Register')]");
+  private registerButton = By.xpath("//button[contains(.,'Register')]");
 
   async register(data: RegisterData) {
     await this.selectByValue(this.salutation, '0');

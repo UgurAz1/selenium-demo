@@ -2,10 +2,12 @@ import { Builder, By, Key, until, WebDriver } from 'selenium-webdriver';
 import { expect } from 'chai';
 import dotenv from "dotenv";
 import { LoginPage } from '../pages/account/LoginPage';
+import { UserHelper } from "../utils/UserHelper";
 
 dotenv.config();
 
 const URL = process.env.BASE_URL ?? ''
+const user = UserHelper.load();
 
 
 describe('TC-01-Login', function () {
@@ -25,10 +27,9 @@ describe('TC-01-Login', function () {
 
   it('Login should succeed', async () => {
     const messageLocator = By.css("h2.text-myspa-blue.text-4xl")
-    const email = "my-spa@mailbox.org"
-    const password = "bvmFlrZKTYnd!A1"
+
     await loginPage.acceptCookiesIfVisible()
-    await loginPage.login(email, password)
+    await loginPage.login(user.email, user.password)
     const element = await driver.wait(until.elementLocated(messageLocator), 5000);
     const text = await element.getText();
 
